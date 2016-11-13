@@ -1,3 +1,9 @@
 .label{
 	margin-right:5px;
 }
+
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+
