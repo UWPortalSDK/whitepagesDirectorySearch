@@ -3,6 +3,7 @@ angular.module('portalApp')
 	
     $scope.loading = atmDataFactory.loading;
     $scope.atmData = atmDataFactory.atmData;
+    $scope.username = { value: "" };
     atmDataFactory.init($scope);
     
 	$scope.$watch('loading.value', function () {
@@ -16,7 +17,16 @@ angular.module('portalApp')
             $scope.portalHelpers.toggleLoading(true);
         }
     });
-	
+    
+    $scope.getData = function() {
+        console.log("Test");
+   		console.log($scope.username.value);
+        $scope.portalHelpers.invokeServerFunction('getATMs', {value: $scope.username.value}).then(function (result) {
+                console.log('atm data: ', result.data);
+                $scope.atmData.value = result.data;
+                loading.value = false;
+    	});
+  	};
 	// Show main view in the first column as soon as controller loads
 	//$scope.portalHelpers.showView('atmMain.html', 1);
 	
@@ -41,8 +51,7 @@ angular.module('portalApp')
         var atmData = {
             meta: null
         };
-
-
+        
         var init = function ($scope) {
             if (initialized.value)
                 return;
@@ -63,6 +72,8 @@ angular.module('portalApp')
         };
 
     }]);
+	
+	
 
 
 

@@ -1,8 +1,16 @@
-<script type="text/ng-template" id="whitepagesDirectorySearchMain.html">   
-    <widget-row ng-repeat="item in atmData.value track by $index">
-        <widget-cell>
-            <div>{{item.given_name}}</div>
-        </widget-cell>
-    </widget-row>
-
-</script>
+<script type="text/ng-template" id="whitepagesDirectorySearchMain.html"> 
+    <div ng-app="portalApp">	
+		Username:    <br/><input type="text" ng-model="username.value">    <br/><br/>
+		<button ng-click='getData()'>Submit</button>
+        <br>
+  		Full Name: {{atmData.value.full_name}}
+        <br>
+        Department: {{atmData.value.department}}
+        <br>
+        Email: {{atmData.value.email_addresses}}
+        <br>
+        Telephone Number: {{atmData.value.telephone_numbers}}
+        <br>
+        Homepage Number: {{atmData.value.homepage}}
+	</div>
+</script>   

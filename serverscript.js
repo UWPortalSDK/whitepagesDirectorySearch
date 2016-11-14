@@ -4,7 +4,10 @@ var uwBase= "https://api.uwaterloo.ca/v2";
 function getATMs() {
     // Paste your API key here. IMPORTANT: DO NOT PUSH THIS TO GITHUB, STORE KEY IN DB
 	// (See documentation on "Managing Private Data" on the "SDK Document" documentation page)
-	return getEndpoint(uwBase + '/directory/saminpou.json?key=');
+	var userId = args.Get("value");
+    console.log("aaaaaaaaaaaaahahahahahahahahahahhhhhhhhhhh");
+    console.log("IS:" + userId);
+    return getEndpoint(uwBase + '/directory/' + userId + '.json?key=');
 }
 
 function getEndpoint( url ) {
